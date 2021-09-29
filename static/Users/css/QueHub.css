@@ -1,0 +1,262 @@
+
+body{
+    background-color: #002244;    
+    max-width:100%;
+    overflow-x: hidden;
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-position: absolute;
+    justify-content: center;
+}
+
+
+*{
+       margin: 0;
+       padding: 0;
+       box-sizing: border-box;
+       font-family:'sans-serif', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana;
+}
+
+nav{
+    background-color: #010c16;
+    height: 10vh;
+}
+
+.modal-content {
+    background-color: #1c1c1f;
+    color: #ffffff;
+}
+
+.modal-header,
+.modal-footer {
+    border: 0;
+}
+
+.close,
+.close:hover {
+    color: #ffffff;
+}
+
+@media only screen and (max-width: 1222px) {
+
+  .col-md-4
+    {
+      padding: 0px 0vh !important;
+    }
+    
+    .card{
+    background-color: #002244; 
+    color: #ffffff; 
+    border: 1px solid #000000; 
+    box-shadow: 2px 7px 4px 2px #000000;
+    margin-top: 3.5vh;
+    
+    }
+}
+
+@media only screen and (min-width: 1222px){
+    .card{
+        margin-top: 5vh;
+    }
+}
+@media only screen and (max-width: 1256px) {#adjust{padding: 3% !important;}}
+@media only screen and (min-width: 1022px) {
+       
+      .progress-circle{
+              font-size:large;
+       }
+      
+      .circle{
+             padding-top: 2em;
+      }
+      .nav-link{
+             font-size:larger!important ;
+      }
+      .navbar-brand{
+             font-size: x-large!important;
+      }
+     
+      
+}
+
+@media only screen and (max-width: 992px) 
+    {.navbar{height: auto !important; } 
+    .pisblogo{display: none;} 
+    .nav-link{font-size: 16px;}
+  }
+@media only screen and (max-width: 500px) {#adjust{padding: 10% !important;}}
+
+.card{
+    background-color: #002244; 
+    color: #ffffff; 
+    border: 1px solid #000000; 
+    box-shadow: 2px 7px 4px 2px #000000;
+    margin-top: 3.5vh;
+    
+    }
+
+.card-header{
+    background-color:#010c16;
+    font-size: 2.4vh;
+}
+
+.card-body{
+    padding: 2vh;
+}
+
+
+.btn1{
+    color:#04d9ff;
+    background-color: #010c16;
+    font-size: 2vh;
+    border: 1px solid #04d9ff;
+    padding: 0.5vh;
+}
+
+.btn1:hover{
+    color:white;
+    background-color:#0099cc;
+    font-size: 2vh;
+    border: 1px solid #0099cc;
+    padding: 0.5vh;
+}
+
+footer {
+    background-color: #010c16;
+    color: #fff;
+}
+/* Timer */
+.clock {
+    font-size:1.6vw; 
+    color: #ffffff;
+    position: relative;
+    text-align: center;
+    overflow: hidden;
+    border: 1px solid black;
+    border-radius:3px;
+    padding:0.2vw;
+    box-sizing: border-box;
+    background-color: #1c1c1f;
+    box-shadow: inset 0 0 5px 2px black;
+  }
+  
+  .clock span {
+    position: relative;
+    display: inline-block;
+    width: 1.8vw;
+    font-family:Advent Pro;
+  }
+  
+  .clock span:nth-child(2),
+  .clock span:nth-child(4) {
+    border-right: 1px solid rgb(0, 0, 0);
+  }
+  
+  .clock span:before,
+  .clock span:after {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    backface-visibility: hidden;
+    transition: transform .75s;
+  }
+  
+  .clock span:before {
+    content: attr(data-old);
+    z-index: 1;
+    transform: translate3d(0,0,0);
+  }
+  
+  .clock .flip:before {
+    transform: translate3d(0,102.5%,0);
+  }
+  
+  .clock span:after {
+    content: attr(data-now);
+    z-index: 2;
+    transform: translate3d(0,-102.5%,0);
+  }
+  
+  .clock .flip:after {
+    transform: translate3d(0,0,0);
+  }
+
+  @media only screen and (max-width: 768px)
+  {
+    .clock{
+      margin-right: 35%;
+      font-size: 3.2vw!important;
+    }
+    .clock span{
+      width:13.5px;
+    }
+  }
+  
+  @media only screen and (max-width:1222px)
+  {
+    .clock
+       {
+              margin-left:14%!important ;
+       }
+
+  }
+  
+  @media (max-width: 540px) {
+    .clock{
+           font-size: 23px!important;
+         
+       }
+       .clock span{
+           width:15px!important;
+       }
+      
+   }
+   @media (max-width: 380px) {
+    .clock{
+           font-size: 20px!important;
+         
+       }
+       .clock span{
+           width:15px!important;
+       }
+       
+   }
+   @media (max-width: 330px){
+       .clock{
+           font-size: 18px!important;
+         
+       }
+       .clock span{
+           width:12px!important;
+       }
+      }
+@media only screen and (min-width:1889px)
+{
+  .clock{
+    margin-left:32.5%!important;
+  }
+}
+@media only screen and (min-width:1020px) and (max-width: 1065px)
+{
+  .clock{
+    margin-left:6em!important;
+   
+  }
+}
+@media (min-width:1020px){
+  .clock{
+    width:200px;
+  }
+}
+@media (min-width:1700px)
+{
+  .clock{
+    width:290px;
+    margin-left:30%!important ;
+  }
+}
+
+
+

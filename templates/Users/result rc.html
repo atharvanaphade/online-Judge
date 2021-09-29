@@ -1,0 +1,552 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Result Page</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link rel="stylesheet" type="text/css" href="{% static 'Users/css/css2.css'%}" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+</head>
+
+<body style="background: #002244">
+
+    <nav id="main-nav" class="navbar navbar-dark navbar-expand-xl z-index"
+        style="background-color: #010c16; height: 10vh">
+        <div class="container-fluid">
+            <a href="{% url 'login' %}" class="navbar-brand" class="eleme">
+                <img src="{% static 'Users/imgs/rc.jpeg' %}" alt="RC LOGO" class="rclogo"
+                    style="height: 55px; width: 75px; margin-right: 2vw" />
+
+                <h4 class="d-inline align-middle" style="
+                            font-family: 'sans-serif', 'Lucida Sans',
+                                'Lucida Sans Regular', 'Lucida Grande',
+                                'Lucida Sans Unicode', 'Geneva', 'Verdana';
+                        ">
+                    Results
+                </h4>
+            </a>
+            <div>
+                <img src="{% static 'Users/imgs/pisb.jpg' %}" class="pisblogo" class="pisblogo2" alt="PISB logo"
+                    height="50px" width="150px" style="padding-left: 2px" />
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid" style="height: 87.5vh; padding-left:0px; padding-right:0px;">
+        <div class="row" style="height: 4vh"></div>
+        <div class="row" style="margin-top: 10px; margin-bottom: 5px">
+            <div class="col-xl-1" style=""></div>
+
+            <div class="col-xl-3" style="height: 70vh">
+                <div style="height: 2.1875vh"></div>
+                <div class="boxs">
+                    {% for key, value in leaderboard.items %}
+                    {% if forloop.counter <= 3 %} <div class="row" style="
+                                height: 21.875vh;
+                                justify-content: center;
+                                box-shadow: -5px -5px 20px 3px rgba(0, 0, 0, 0.8);
+                            " }>
+                        <div class="col-lg-9" style="
+                                    height: 10.9375vh;
+                                    justify-content: center;
+                                    text-align: left;
+
+                                    margin-top: 15px;
+                                ">
+                            <div style="
+                                        color: rgb(255, 255, 255);
+                                        padding-top: 1.5vh;
+                                    ">
+                                <h4 style="
+                                            font-family: 'sans-serif',
+                                                'Lucida Sans',
+                                                'Lucida Sans Regular',
+                                                'Lucida Grande',
+                                                'Lucida Sans Unicode', 'Geneva',
+                                                'Verdana';
+                                            font-size: 30px;
+                                        ">
+                                    RANK {{ forloop.counter }}
+                                </h4>
+                            </div>
+                        </div>
+                        <div class="col-lg-9" style="
+                                    height: 10.9375vh;
+                                    justify-content: center;
+                                    text-align: left;
+                                ">
+                            <div>
+                                <div style="
+                                            width: 80%;
+                                            text-align: left;
+                                            float: left;
+                                        ">
+                                    <h5 style="
+                                                color: #ddd;
+                                                font-family: 'sans-serif',
+                                                    'Lucida Sans',
+                                                    'Lucida Sans Regular',
+                                                    'Lucida Grande',
+                                                    'Lucida Sans Unicode',
+                                                    'Geneva', 'Verdana';
+                                                font-size: 20px;
+                                            ">
+                                        {{ key }}
+                                    </h5>
+                                </div>
+                                <div style="
+                                            text-align: center;
+                                            width: 20%;
+                                            float: right;
+                                            border-radius: 10%;
+                                        ">
+                                    <h5 style="
+                                                color: #ddd;
+                                                font-family: 'sans-serif',
+                                                    'Lucida Sans',
+                                                    'Lucida Sans Regular',
+                                                    'Lucida Grande',
+                                                    'Lucida Sans Unicode',
+                                                    'Geneva', 'Verdana';
+                                                font-size: 20px;
+                                            ">
+                                        {{ value }}
+                                    </h5>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="col-xl-4" style="
+                        height: 70vh;
+                        border: 0px solid white;
+                        z-index: 500;
+                        box-shadow: -5px 5px 25px 4px rgba(0, 0, 0, 0.8),
+                            5px -5px 25px 4px rgba(0, 0, 0, 0.8);
+                        background: linear-gradient(to top, #002244, #002244);
+                    ">
+            <div class="boxmain">
+                <div class="row" style="
+                                height: 21.875vh;
+                                align-items: center;
+                                justify-content: center;
+                            ">
+                    <div class="col-lg-3" style="
+                                    border: 1px solid white;
+                                    border-radius: 50%;
+                                    height: 130px;
+                                    width: 200px;
+                                    background-image: radial-gradient(
+                                        #2bc4eb,
+                                        #132f36
+                                    );
+                                    display: flex; /* or inline-flex */
+                                    align-items: center;
+                                    justify-content: center;
+                                    margin-top: 6px;
+                                    position: absolute;
+                                ">
+                        <div style="
+                                        font-size: 65px;
+                                        margin-bottom: 1vh;
+                                        font-family: 'sans-serif', 'Lucida Sans',
+                                            'Lucida Sans Regular',
+                                            'Lucida Grande',
+                                            'Lucida Sans Unicode', 'Geneva',
+                                            'Verdana';
+                                    ">
+                            {{ initials }}
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="
+                                height: 4.375vh;
+                                text-align: center;
+                                justify-content: center;
+                                margin-top: 15px;
+                                color: #ddd;
+                            ">
+                    <h5 style="
+                                    font-family: 'sans-serif', 'Lucida Sans',
+                                        'Lucida Sans Regular', 'Lucida Grande',
+                                        'Lucida Sans Unicode', 'Geneva',
+                                        'Verdana';
+                                    font-size: 20px;
+                                ">
+                        {{ username }}
+                    </h5>
+                </div>
+                <div class="box">
+                    <div class="row" style="
+                                    height: 8.75vh;
+                                    box-shadow: 0px 0px 0px 0px
+                                        rgb(100, 80, 100);
+                                ">
+                        <div calss="inline" style="
+                                        text-align: left;
+                                        width: 70%;
+                                        display: flex;
+                                        justify-content: center;
+                                        flex-direction: column;
+                                        margin-left: 30px;
+                                    ">
+                            <div style="color: #ddd; padding-left: 1.5vh">
+                                <h5 style="
+                                                font-family: 'sans-serif',
+                                                    'Lucida Sans',
+                                                    'Lucida Sans Regular',
+                                                    'Lucida Grande',
+                                                    'Lucida Sans Unicode',
+                                                    'Geneva', 'Verdana';
+                                                font-size: 20px;
+                                            ">
+                                    RANK
+                                </h5>
+                            </div>
+                        </div>
+                        <div calss="inline" style="
+                                        text-align: left;
+                                        width: 20%;
+                                        display: flex;
+                                        justify-content: center;
+                                        flex-direction: column;
+                                    ">
+                            <div style="color: #ddd">
+                                <h5 style="
+                                                font-family: 'sans-serif',
+                                                    'Lucida Sans',
+                                                    'Lucida Sans Regular',
+                                                    'Lucida Grande',
+                                                    'Lucida Sans Unicode',
+                                                    'Geneva', 'Verdana';
+                                                font-size: 20px;
+                                                padding-left: 3vh;
+                                            ">
+                                    {{ rank }}
+                                </h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="row" style="
+                                    height: 8.75vh;
+                                    box-shadow: 0px 0px 0px 0px
+                                        rgb(100, 80, 100);
+                                ">
+                        <div calss="inline" style="
+                                        text-align: left;
+                                        width: 70%;
+                                        display: flex;
+                                        justify-content: center;
+                                        flex-direction: column;
+                                        margin-left: 30px;
+                                    ">
+                            <div style="color: #ddd; padding-left: 1.5vh">
+                                <h5 style="
+                                                font-family: 'sans-serif',
+                                                    'Lucida Sans',
+                                                    'Lucida Sans Regular',
+                                                    'Lucida Grande',
+                                                    'Lucida Sans Unicode',
+                                                    'Geneva', 'Verdana';
+                                                font-size: 20px;
+                                            ">
+                                    SCORE
+                                </h5>
+                            </div>
+                        </div>
+                        <div calss="inline" style="
+                                        text-align: left;
+                                        width: 20%;
+                                        display: flex;
+                                        justify-content: center;
+                                        flex-direction: column;
+                                    ">
+                            <div style="color: #ddd">
+                                <h5 style="
+                                                font-family: 'sans-serif',
+                                                    'Lucida Sans',
+                                                    'Lucida Sans Regular',
+                                                    'Lucida Grande',
+                                                    'Lucida Sans Unicode',
+                                                    'Geneva', 'Verdana';
+                                                font-size: 20px;
+                                                padding-left: 3vh;
+                                            ">
+                                    {{ score }}
+                                </h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="row" style="
+                                    height: 8.75vh;
+                                    box-shadow: 0px 0px 0px 0px
+                                        rgb(100, 80, 100);
+                                ">
+                        <div calss="inline" style="
+                                        text-align: left;
+                                        width: 70%;
+                                        display: flex;
+                                        justify-content: center;
+                                        flex-direction: column;
+                                        margin-left: 30px;
+                                    ">
+                            <div style="color: #ddd; padding-left: 1.5vh">
+                                <h5 style="
+                                                font-family: 'sans-serif',
+                                                    'Lucida Sans',
+                                                    'Lucida Sans Regular',
+                                                    'Lucida Grande',
+                                                    'Lucida Sans Unicode',
+                                                    'Geneva', 'Verdana';
+                                                font-size: 20px;
+                                            ">
+                                    QUESTIONS ATTEMPTED
+                                </h5>
+                            </div>
+                        </div>
+                        <div calss="inline" style="
+                                        text-align: left;
+                                        width: 20%;
+                                        display: flex;
+                                        justify-content: center;
+                                        flex-direction: column;
+                                    ">
+                            <div style="color: #ddd">
+                                <h5 style="
+                                                font-family: 'sans-serif',
+                                                    'Lucida Sans',
+                                                    'Lucida Sans Regular',
+                                                    'Lucida Grande',
+                                                    'Lucida Sans Unicode',
+                                                    'Geneva', 'Verdana';
+                                                font-size: 20px;
+                                                padding-left: 3vh;
+                                            ">
+                                    {{ questions_attempted }}
+                                </h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="row" style="
+                                    height: 8.75vh;
+                                    box-shadow: 0px 0px 0px 0px
+                                        rgb(100, 80, 100);
+                                ">
+                        <div calss="inline" style="
+                                        text-align: left;
+                                        width: 70%;
+                                        display: flex;
+                                        justify-content: center;
+                                        flex-direction: column;
+                                        margin-left: 30px;
+                                    ">
+                            <div style="color: #ddd; padding-left: 1.5vh">
+                                <h5 style="
+                                                font-family: 'sans-serif',
+                                                    'Lucida Sans',
+                                                    'Lucida Sans Regular',
+                                                    'Lucida Grande',
+                                                    'Lucida Sans Unicode',
+                                                    'Geneva', 'Verdana';
+                                                font-size: 20px;
+                                            ">
+                                    QUESTIONS SOLVED
+                                </h5>
+                            </div>
+                        </div>
+                        <div calss="inline" style="
+                                        text-align: left;
+                                        width: 20%;
+                                        display: flex;
+                                        justify-content: center;
+                                        flex-direction: column;
+                                    ">
+                            <div style="color: #ddd">
+                                <h5 style="
+                                                font-family: 'sans-serif',
+                                                    'Lucida Sans',
+                                                    'Lucida Sans Regular',
+                                                    'Lucida Grande',
+                                                    'Lucida Sans Unicode',
+                                                    'Geneva', 'Verdana';
+                                                font-size: 20px;
+                                                padding-left: 3vh;
+                                            ">
+                                    {{ questions_solved }}
+                                </h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-3" style="height: 70vh">
+            <div style="height: 2.1875vh"></div>
+            <div class="boxs">
+                {% for key, value in leaderboard.items %}
+                {% if forloop.counter >= 4 and forloop.counter <= 6 %} <div class="row" style="
+                                height: 21.875vh;
+                                justify-content: center;
+                                box-shadow: 5px -5px 20px 3px rgba(0, 0, 0, 0.8);
+                            ">
+                    <div class="col-lg-9" style="
+                                    height: 10.9375vh;
+                                    justify-content: center;
+                                    text-align: left;
+
+                                    margin-top: 15px;
+                                ">
+                        <div style="color: #ddd; padding-top: 1.5vh">
+                            <h4 style="
+                                            font-family: 'sans-serif',
+                                                'Lucida Sans',
+                                                'Lucida Sans Regular',
+                                                'Lucida Grande',
+                                                'Lucida Sans Unicode', 'Geneva',
+                                                'Verdana';
+                                            font-size: 30px;
+                                        ">
+                                RANK {{ forloop.counter }}
+                            </h4>
+                        </div>
+                    </div>
+                    <div class="col-lg-9" style="
+                                    height: 10.9375vh;
+                                    justify-content: center;
+                                    text-align: left;
+                                ">
+                        <div>
+                            <div style="
+                                            width: 80%;
+                                            text-align: left;
+                                            float: left;
+                                        ">
+                                <h5 style="
+                                                color: #ddd;
+                                                font-family: 'sans-serif',
+                                                    'Lucida Sans',
+                                                    'Lucida Sans Regular',
+                                                    'Lucida Grande',
+                                                    'Lucida Sans Unicode',
+                                                    'Geneva', 'Verdana';
+                                                font-size: 20px;
+                                            ">
+                                    {{ key }}
+                                </h5>
+                            </div>
+                            <div style="
+                                            text-align: center;
+                                            width: 20%;
+                                            float: right;
+                                            border-radius: 10%;
+                                        ">
+                                <h5 style="
+                                                color: #ddd;
+                                                font-family: 'sans-serif',
+                                                    'Lucida Sans',
+                                                    'Lucida Sans Regular',
+                                                    'Lucida Grande',
+                                                    'Lucida Sans Unicode',
+                                                    'Geneva', 'Verdana';
+                                                font-size: 20px;
+                                            ">
+                                    {{ value }}
+                                </h5>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+    <div class="col-xl-1" style="padding-bottom: 10vh"></div>
+    </div>
+    </div>
+    <style>
+        @media only screen and (max-width: 1050px) {
+            .pisblogo {
+                width: 150px;
+                height: 40px;
+                vertical-align: top;
+            }
+        }
+
+        @media only screen and (max-width: 390px) {
+            .pisblogo {
+                width: 100px;
+                height: 45px;
+                vertical-align: top;
+            }
+        }
+    </style>
+    <style>
+        @media only screen and (max-width: 768px) {
+            #adjust {
+                padding: 8% !important;
+            }
+        }
+
+        @media only screen and (max-width: 500px) {
+            #adjust {
+                padding: 12% !important;
+            }
+        }
+
+        @media only screen and (max-width: 1222px) {
+            #adjust {
+                padding: 5% !important;
+            }
+        }
+    </style>
+    
+    <footer class="text-center" style="
+                background-color: #010c16;
+                color: #fff;
+                position: fixed;
+                left: 0;
+                bottom: 0;
+                width: 100%;
+                text-align: center;
+
+                z-index: 500;
+            ">
+        <div class="conatiner-fluid">
+            <div class="footer-text pt-3 pb-4" style="
+                        font-size: 18px;
+                        font-family: 'sans-serif', 'Lucida Sans',
+                            'Lucida Sans Regular', 'Lucida Grande',
+                            'Lucida Sans Unicode', 'Geneva', 'Verdana';
+                    ">
+                <span>&copy</span> PICT IEEE Student Branch
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

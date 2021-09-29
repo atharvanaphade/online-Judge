@@ -1,0 +1,186 @@
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+  text-align: center;
+  background-color: #002244;
+  font-family: sans-serif;
+  position: relative;
+  height: 100%;
+}
+
+@media (min-width: 1026px) {
+  .col-xl-5 {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 4rem;
+    z-index: 1000;
+    height: calc(100vh-7rem);
+  }
+}
+@media (min-width: 100) {
+  .col-xl-2 {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 4rem;
+    height: calc(100vh-7rem);
+  }
+}
+
+textarea {
+  resize: none;
+  width: 100%;
+  box-shadow: 2px 7px 4px 2px #000000;
+  background-color: #002244;
+  font-size: 1rem;
+  color: white;
+  padding: 15px;
+  height: 55vh;
+  border: none;
+  outline: none;
+}
+
+.table {
+  -webkit-text-decoration-color: rgb(0, 0, 10);
+  text-decoration-color: rgb(0, 0, 10);
+  border-collapse: separate;
+  border-block-style: 3px black;
+  border-spacing: 34px;
+  border: 1px solid #000000;
+  box-shadow: 2px 7px 4px 2px #000000;
+  margin-top: 20px;
+}
+.row {
+  line-height: 20px;
+  font-size: 20px;
+}
+.item {
+  text-align: center;
+  margin-left: auto;
+}
+
+.addBorder {
+  border: 1px solid black;
+}
+
+.testcases {
+  margin: 1rem auto;
+  width: 80%;
+  padding: 0.8rem 0.5rem;
+  border: 1px solid #000000;
+  background-color: black;
+  color: #ffffff;
+}
+
+.info-box {
+  margin: 2rem auto;
+}
+
+.testcases-box {
+  margin: 1rem;
+  border: none;
+  box-shadow: 2px 7px 4px 2px #000000;
+  margin-bottom: 1%;
+  margin-top: 0.2%;
+
+  /* height: 70vh; */
+  /* padding-top: 80px; */
+}
+
+.card {
+    width: 50%;
+    margin: auto;
+    border-radius: 10%;
+    box-shadow: 2px 7px 4px 2px #000000;
+    background-color: #002244;
+    color: #ffffff;
+    height: 18vh;
+    font-family: Arial;
+    font-size: 20px;
+}
+button {
+    width: 120px;
+}
+
+@media (min-width: 768px) {
+    .card {
+        width: 80%;
+    }
+}
+
+.card-header {
+    background-color: #000000;
+}
+
+footer {
+  background-color: #010c16;
+  color: #fff;
+  bottom: 0%;
+  position: absolute;
+  width: 100%;
+}
+
+@media (max-width: 425px) {
+  footer {
+    position: fixed;
+  }
+}
+nav {
+  background-color: #010c16;
+  color: #fff;
+  /* background-color: #1f2124; */
+}
+
+.rclogo {
+  height: 55px;
+  width: 75px;
+  margin-right: 2vw;
+}
+
+.btn-xl {
+  padding: 10px 20px;
+  font-size: 30px;
+  border-radius: 10px;
+}
+@media only screen and (max-width: 1161px) {
+  .Time {
+    margin-left: 0% !important;
+  }
+}
+
+.fail {
+  color: red;
+  margin-left: 5%;
+}
+
+.pass {
+  color: green;
+  margin-left: 5%;
+}
+
+@media (max-width: 768px) {
+  .fixed-position {
+    position: relative;
+  }
+  .pisb-logo {
+    display: none;
+  }
+}
+.modal {
+  z-index: 11111111;
+}
+
+.modal-content {
+  background-color: #1c1c1f;
+  color: #ffffff;
+}
+
+.modal-header,
+.modal-footer {
+  border: 0;
+}
+
+.close,
+.close:hover {
+  color: #ffffff;
+}

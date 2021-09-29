@@ -1,0 +1,327 @@
+{%load static%}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>LEADERBOARD</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../static/Users/css/lead.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+</head>
+
+<body style="background-color: #002244">
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #010c16; height: 10vh">
+            <a class="navbar-brand" href="{% url 'question-hub' %}" style="margin-right: 2vw;">
+                <img src="../../static/Users/imgs/RC_logo.jpeg" width="75vh" height="55vh"
+                    class="d-inline-block align-top" alt="RC logo" />
+            </a>
+
+            <a class="navbar-brand" style="font-size: 23px; margin-right: auto">Leaderboard</a>
+            <!--Timer-->
+            <span class="clock" style="margin-left: 28vw"></span>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item mt-1">
+                        <a class="nav-link" href="{% url 'question-hub' %}">Question Hub</a>
+                    </li>
+                    <li class="nav-item mt-1">
+                        <a class="nav-link" href="{% url 'submissions-page' %}">Submissions</a>
+                    </li>
+                    <li class="nav-item mt-1 mr-4">
+                        <a href="{% url 'logout' %}" class="nav-link" data-target="#staticBackdrop"
+                            data-toggle="modal">Logout</a>
+                    </li>
+                    <li class="nav-item">
+                        <img class="pisblogo" src="../../static/Users/imgs/pisb.jpg" width="150vh" height="50vh"
+                            alt="PISB logo" />
+                    </li>
+                </ul>
+            </div>
+
+            <!--Logout Modal-->
+            <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1"
+                aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content" style="background-color: #1c1c1f; color: #ffffff">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="staticBackdropLabel">
+                                Logout
+                            </h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+                                style="color: #ffffff">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            Do you really want to Log out?
+                        </div>
+
+                        <div class="modal-footer">
+                            <a href="{% url 'logout' %}">
+                                <button type="button" class="btn btn-primary">
+                                    Logout
+                                </button>
+                            </a>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">
+                                Cancel
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="container-fluid">
+            <div class="row justify-content-center" style="padding-top: 1%; height: fit-content">
+                <div class="col-sm-3 col-md-3" style="height: auto">
+                    <!--Card-->
+                    <div class="card" style="
+                                border: black solid thin;
+                                background-color: #002244;
+                                border-radius: 7px;
+                                height: fit-content;
+                                margin-right: -30px;
+                                margin-top: 1.5em;
+                            ">
+                        <div class="card-body align-items-center">
+                            <div class="content align-items-center">
+                                <!--Avatar circle -->
+                                <div class="avatar-circle">
+                                    <span class="initials">{{ initials }}</span>
+                                </div>
+                                <div>
+                                    <p style="
+                                                font-size: medium;
+                                                font-family: 'Lucida Sans Unicode',
+                                                    'Lucida Grande', sans-serif;
+                                                padding: 25px;
+                                            ">
+                                        {{ current_user }}
+                                    </p>
+                                </div>
+
+                                <div>
+                                    <div class="Rank">
+                                        <div class="hd font-weight-bold mb-0">
+                                            Rank
+                                        </div>
+                                        <span class="text-gray">{{ current_user_rank }}</span>
+                                    </div>
+
+                                    <div class="Score">
+                                        <div class="hd font-weight-bold mb-0">
+                                            Score
+                                        </div>
+                                        <span class="text-gray">{{ current_user_score }}</span>
+                                    </div>
+                                </div>
+                                <!--Progress bar -->
+                                <div class="circle" style="
+                                            padding-bottom: 1em;
+                                            padding-top: 1em;
+                                        ">
+                                    <div class="container align-items-center d-flex justify-content-center">
+                                        {% if user_accuracy < 50 %} <div
+                                            class="progress-circle p{{ user_accuracy|floatformat:'0' }} mx-auto">
+                                            <span><b>{{ user_accuracy }}%</b></span>
+                                            <div class="left-half-clipper">
+                                                <div class="first50-bar"></div>
+                                                <div class="value-bar"></div>
+                                            </div>
+                                    </div>
+                                    {% else %}
+                                    <div class="progress-circle over50 p{{ user_accuracy|floatformat:'0' }} mx-auto">
+                                        <span><b>{{ user_accuracy }}%</b></span>
+                                        <div class="left-half-clipper">
+                                            <div class="first50-bar"></div>
+                                            <div class="value-bar"></div>
+                                        </div>
+                                    </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="col-sm-8 col-md-8">
+                <!--Table -->
+                <table class="table table-fit table-responsive-sm table-responsive-md"
+                    style="margin-top: 1.9em; height: fit-content">
+                    <thead>
+                        <tr style="
+                                        color: white;
+                                        text-align-last: center;
+                                    ">
+                            <th>RANK</th>
+                            <th>USERNAME</th>
+                            {% for question in questions %}
+                            <th id="question_{{ question.id }}">
+                                Q{{ question.id }}
+                            </th>
+                            {% endfor %}
+                            <th>TOTAL SCORE</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for entry in page_obj %}
+                        <tr class="rank">
+                            <td>
+
+                                {{forloop.counter0|add:page_obj.start_index}}
+
+                            </td>
+                            <td>{{ entry.0 }}</td>
+                            {% for x in entry.1 %}
+                            <td id="question">{{ x }}</td>
+                            {% endfor %}
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <!--Pagination-->
+                <nav aria-label="Page navigation example" style="
+                                text-align: center;
+                                font-size: medium;
+                                margin-top: 1em;
+                                padding-top: 1em;
+                            ">
+                    <ul class="pagination justify-content-center">
+                        {% if page_obj.has_previous %}
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{ page_obj.previous_page_number }}" tabindex="-1"
+                                aria-disabled="false">Previous</a>
+                        </li>
+                        {% endif %}
+                        {% for i in page_range %}
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{ i }}">{{ i }}</a>
+                        </li>
+                        {% endfor %}
+                        {% if page_obj.has_next %}
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a>
+                        </li>
+                        {% endif %}
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        </div>
+    </main>
+
+    <br />
+    <div id="adjust" style="padding: 3%"></div>
+    <!--Footer-->
+    <footer class="text-center">
+        <div class="conatiner-fluid">
+            <div class="footer-text pt-3 pb-4" style="font-size: 18px">
+                &copy <span>PICT IEEE Student Branch</span>
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+
+        var endTime = "{{ time|date:'M d, Y H:i:s' }}";
+        var Clock = (function () {
+            var exports = function (element) {
+                this._element = element;
+                var html = '';
+                for (var i = 0; i < 6; i++) {
+                    html += '<span>&nbsp;</span>';
+                }
+                this._element.innerHTML = html;
+                this._slots = this._element.getElementsByTagName('span');
+                this._tick();
+            };
+            exports.prototype = {
+                _tick: function () {
+                    var time = new Date().getTime();
+                    var end = new Date(endTime).getTime();
+                    var distance = end - time;
+
+                    if (distance < 0) {
+                        if (window.location.port != "") {
+                            window.location = window.location.protocol + '//' + window.location.hostname + ':' + window.location.port + '/logout/';
+                        }
+                        else {
+                            window.location = window.location.protocol + '//' + window.location.hostname + '/logout/';
+                        }
+                    }
+
+                    else {
+                        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                        this._update(this._pad(hours) + this._pad(minutes) + this._pad(seconds));
+                        var self = this;
+                        setTimeout(function () {
+                            self._tick();
+                        }, 1000);
+                    }
+                },
+                _pad: function (value) {
+                    return ('0' + value).slice(-2);
+                },
+                _update: function (timeString) {
+                    var i = 0, l = this._slots.length, value, slot, now;
+                    for (; i < l; i++) {
+                        value = timeString.charAt(i);
+                        slot = this._slots[i];
+                        now = slot.dataset.now;
+                        if (!now) {
+                            slot.dataset.now = value;
+                            slot.dataset.old = value;
+                            continue;
+                        }
+                        if (now !== value) {
+                            this._flip(slot, value);
+                        }
+                    }
+                },
+                _flip: function (slot, value) {
+                    slot.classList.remove('flip');
+                    slot.dataset.old = slot.dataset.now;
+                    slot.dataset.now = value;
+                    slot.offsetLeft;
+                    slot.classList.add('flip');
+                }
+            };
+            return exports;
+        }());
+        var i = 0, clocks = document.querySelectorAll('.clock'), l = clocks.length;
+        for (; i < l; i++) {
+            new Clock(clocks[i]);
+        }
+    </script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up</title>
+</head>
+<body>
+<form method="post">
+
+    {% csrf_token %}
+
+    <h1>Sign up</h1>
+
+    {% if messages %}
+        {% for message in messages %}
+            <b>{{ message }}</b>
+            <br>
+            <br>
+        {% endfor %}
+    {% endif %}
+
+    <div>
+        <label for="username">Enter username:</label>
+        <input type="text" id="username" name="username">
+    </div>
+
+    <br>
+
+    <div>
+        <label for="fname">Enter first name:</label>
+        <input type="text" id="fname" name="fname">
+    </div>
+
+    <br>
+
+    <div>
+        <label for="lname">Enter last name:</label>
+        <input type="text" id="lname" name="lname">
+    </div>
+
+    <br>
+
+    <div>
+        <label for="email">Enter email ID:</label>
+        <input type="email" id="email" name="email">
+    </div>
+
+    <br>
+
+    <div>
+        <label for="phone">Enter phone number:</label>
+        <input type="number" id="phone" name="phone">
+    </div>
+
+    <br>
+
+    <div>
+        <label for="college">Enter college name:</label>
+        <input type="text" id="college" name="college">
+    </div>
+
+    <br>
+
+    <div>
+        <p>Select Level:</p>
+        <ul>
+            <li>
+                <label for="junior">Junior</label>
+                <input type="radio" id="junior" name="level" value="Junior">
+            </li>
+
+            <br>
+
+            <li>
+                <label for="senior">Senior</label>
+                <input type="radio" id="senior" name="level" value="Senior">
+            </li>
+
+<!--            <br>-->
+
+<!--            <li>-->
+<!--                <label for="other">Other</label>-->
+<!--                <input type="radio" id="other" name="gender" value="Other">-->
+<!--            </li>-->
+        </ul>
+    </div>
+
+    <br>
+
+    <div>
+        <label for="pass1">Enter password:</label>
+        <input type="password" id="pass1" name="password1">
+    </div>
+
+    <br>
+
+    <div>
+        <label for="pass2">Confirm password:</label>
+        <input type="password" id="pass2" name="password2">
+    </div>
+
+    <br>
+
+    <div>
+        <button type="submit">Sign Up</button>
+    </div>
+
+</form>
+
+<br>
+
+<a href="{% url 'login' %}">Already have an account? Login here.</a>
+
+</body>
+</html>

@@ -1,0 +1,184 @@
+.modal .container {
+  padding: 2rem 0rem;
+}
+.navbar{
+  margin-bottom: 0px;
+}
+.nav-item{
+  padding-right:2rem;
+  padding-left: 2rem;
+
+}
+@media (min-width: 576px) {
+  .modal .modal-dialog {
+    max-width: 400px;
+  }
+
+  .modal .modal-dialog .modal-content {
+    padding: 1rem;
+  }
+}
+
+.modal .modal-header .close {
+  margin-top: -1.5rem;
+}
+
+.modal .form-title {
+  margin: -2rem 0rem 2rem;
+}
+
+.modal .btn-round {
+  border-radius: 3rem;
+}
+
+.modal .delimiter {
+  padding: 1rem;
+}
+
+.modal .social-buttons .btn {
+  margin: 0 0.5rem 1rem;
+}
+
+.modal .signup-section {
+  padding: 0.3rem 0rem;
+}
+
+.modal .container {
+  padding: 2rem 0rem;
+}
+
+@media (min-width: 576px) {
+  .modal .modal-dialog {
+    max-width: 400px;
+  }
+
+  .modal .modal-dialog .modal-content {
+    padding: 1rem;
+  }
+}
+
+.modal .modal-header .close {
+  margin-top: -1.5rem;
+}
+
+.modal .form-title {
+  margin: -2rem 0rem 2rem;
+}
+
+.modal .btn-round {
+  border-radius: 3rem;
+}
+
+.modal .delimiter {
+  padding: 1rem;
+}
+
+.modal .social-buttons .btn {
+  margin: 0 0.5rem 1rem;
+}
+
+.modal .signup-section {
+  padding: 0.3rem 0rem;
+}
+
+
+
+nav {
+  background-color: #001122;
+}
+
+nav a {
+  color: white;
+  transition: all 0.3s;
+}
+
+.topnav-centered{
+  display: inline-block;
+  float: none;
+  vertical-align: top;
+
+}
+#link-1b {
+  color: #DEF2F1;
+  transition: all 0.3s;
+  border-left: 2px solid transparent;
+  cursor: pointer;
+}
+
+
+nav .brdr2 {
+  border-left: 1px solid #17252a;
+
+}
+
+nav .brdr3 {
+  border-right: 1px solid #17252a;
+
+}
+
+
+
+
+nav ul a:hover {
+  color: #17252a;
+  background-color: #DEF2F1;
+}
+
+nav .dropdown {
+  display: flex;
+  transition: all 0.3s;
+}
+
+nav .navbar-nav .dropdown-menu {
+  position: absolute;
+}
+
+
+
+nav .dropdown:hover #link-1b {
+  color: #17252a;
+  background-color: #DEF2F1;
+  border-left: 2px solid #17252a;
+}
+
+
+nav .dropdown:hover .link-1a {
+  color: #17252a;
+  background-color: #DEF2F1;
+}
+
+
+nav .dropdown-menu {
+  background-color: #17252a;
+  transition: all 0.3s;
+}
+
+
+nav .dropdown-menu a {
+  color: #DEF2F1;
+  transition: all 0.3s;
+
+}
+
+nav .dropdown-menu a:hover {
+  color: #17252a;
+}
+
+nav .dropdown-item {
+  transition: all 0.3s;
+}
+
+nav .dropdown-item:hover {
+  color: #e21313;
+  background-color: #DEF2F1;
+}
+
+#link-1b {
+  width: 50px;
+  padding: 10px;
+  padding-left: 12px;
+}
+
+nav .navbar-toggler-icon {
+  color: #e21313;
+}

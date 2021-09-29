@@ -1,0 +1,92 @@
+.box {
+    margin: 0 9vw;
+    padding: 0;
+    margin-top: 7vh;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    border: 0px;
+    font-family: sans-serif;
+
+    background: #002244;
+    box-shadow: 0px 10px 25px rgba(0, 0, 0, 1);
+}
+.rclogo {
+    height: 55px;
+    width: 75px;
+    margin-right: 2vw;
+}
+
+.mt-6 {
+    margin-top: 3.2vw;
+}
+
+body {
+    background: #002244;
+}
+.mx-auto{
+    height: 100%;
+    }
+
+footer {
+    background-color: #010c16;
+    color: #fff;
+}
+
+.bar {
+    font: 25px sans-serif;
+}
+
+.btn {
+    margin: 0px;
+    padding: 0px;
+    position: absolute;
+    width: 18rem;
+    z-index: 1000;
+    font-family: sans-serif;
+    font-size: 20px;
+    border: 1px solid grey;
+    background: #002244;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
+}
+.navbar{
+    padding-left: 0.5rem!important;
+}
+
+@media (max-width: 768px) {
+    .bar {
+        font: 25px sans-serif;
+        margin-left: 0;
+    }
+
+    .box {
+        margin-left: 4vw;
+        padding: 0px;
+        width: 90%;
+    }
+    .btn {
+        border: 0px;
+        margin-left: 10vw;
+        padding: 0px;
+        position: absolute;
+        z-index: 1000;
+        font-family: sans-serif;
+        font-size: 20px;
+        border: 1px solid white;
+        border-radius: 5px;
+        background: #002244;
+        box-shadow: 0px 15px 30px 4px rgba(0, 0, 0, 0.8);
+    }
+
+    footer {
+        margin-top: 23vw;
+    }
+    .fixed-bottom{
+        position: relative;
+    }
+
+    .hide {
+        display: none;
+    }
+
+}

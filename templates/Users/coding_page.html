@@ -1,0 +1,448 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="UTF-8" />
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="utf-8" http-equiv="encoding">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+        integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous" />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{%static 'Users/css/coding.css' %}" />
+    <link rel="stylesheet" href="{% static 'Users/css/codingMediaQueries.css' %}" />
+
+    <!-- Code Mirror CSS -->
+    <link rel="stylesheet" href="{% static 'Users/js/codemirror-5.57.0/lib/codemirror.css' %}" />
+
+    <title>Coding Page</title>
+</head>
+
+<body>
+    <!-- NAVBAR -->
+    <nav id="main-nav" class="navbar navbar-dark navbar-expand-xl z-index" style="height: 10vh">
+        <div class="container-fluid">
+            <!-- LOGO and title -->
+            <a href="{% url 'question-hub' %}" class="navbar-brand">
+                <img src="{% static 'Users/imgs/RC_logo.jpeg' %}" alt="RC LOGO" class="rclogo" />
+                <svg width="30px" height="30px" viewBox="0 0 16 16" class="bi bi-code-square" fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M14 1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2a1 1 0
+          0 0-1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2
+          0 0 0-2-2H2z" />
+                    <path fill-rule="evenodd" d="M6.854 4.646a.5.5 0 0 1 0 .708L4.207 8l2.647 2.646a.5.5 0 0
+          1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 0 1 .708 0zm2.292
+        0a.5.5 0 0 0 0 .708L11.793 8l-2.647 2.646a.5.5 0 0 0
+          .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708 0z" />
+                </svg>
+                <h4 class="d-inline align-middle">Coding Page</h4>
+            </a>
+            <!-- TIMER -->
+            <span class="clock" style="margin-left: 28vw"></span>
+            <!-- TOGGLER-->
+            <button class="navbar-toggler mr-1" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- LINKS -->
+            <div id="navbarCollapse" class="collapse navbar-collapse mt-23"
+                style="background-color: #010c16; z-index: 100000">
+                <ul class="navbar-nav ml-auto mr-4">
+                    <li class="nav-item">
+                        <a href="{% url 'question-hub' %}" class="nav-link" style="font-size: 19.2px;">Question Hub</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'submissions-page' %}" class="nav-link" style="font-size: 19.2px;">Submissions</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'logout' %}" class="nav-link" data-target="#staticBackdrop"
+                            data-toggle="modal" style="font-size: 19.2px;">Logout</a>
+                    </li>
+                </ul>
+            </div>
+            <img src="{% static 'Users/imgs/pisb.jpg' %}" class="pisb-logo" alt="PISB logo" height="50px"
+                width="150px" />
+        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1"
+            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">
+                            Logout
+                        </h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        Do you really want to Log out?
+                    </div>
+
+                    <div class="modal-footer">
+                        <a href="{% url 'logout' %}">
+                            <button type="button" class="btn btn-primary">
+                                Logout
+                            </button>
+                        </a>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">
+                            Cancel
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- MAIN BODY -->
+
+    <div class="bg-main">
+        <div class="container pt-3 h90">
+            <div class="row">
+                <div class="col-md-6 ppr-0">
+                    <!-- QUESTION_CONTAINER -->
+                    <div class="row mb-6 mr-3" style="height: 38vh">
+                        <div class="question container">
+                            <div class="card" style="height: 100%">
+                                <div class="card-header text-center text-white">
+                                    Question {{ question_id }}
+                                </div>
+                                <textarea name="input" class="text-white p-4" style="height: 100%; width: 100%"
+                                    readonly>
+{{ question.quesTitle }}
+
+{{ question.quesDesc }}</textarea>
+                                <!-- <div class="card-body">
+        <div class="question-goes-here"></div>
+    </div> -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- INPUT -->
+                    <div class="row mr-3 mt-2 mr-0">
+                        <div class="col-md-6" style="height: 30vh">
+                            <div class="card" style="height: 100%">
+                                <div class="card-header text-white text-center">
+                                    Input
+                                </div>
+                                <textarea name="input" id="input-textarea" class="text-white p-4"
+                                    style="height: 100%; width: 100%"></textarea>
+                            </div>
+                        </div>
+                        <!-- OUTPUT -->
+                        <div class="col-md-6 mt-res" style="height: 30vh">
+                            <div class="card" style="height: 100%">
+                                <div class="card-header text-white text-center">
+                                    Output
+                                </div>
+                                <textarea name="input" id="output-textarea" class="text-white p-4"
+                                    style="height: 100%; width: 100%" readonly></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- RUN CODE -->
+                    <div class="row mt-3 ppr-3">
+                        <div class="col align-self-center">
+                            <button id="run" class="btn btn-warning btn-full button">
+                                Run Code
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- CODE EDITOR SIDE -->
+
+                <div class="col-md-6 start mtt-0">
+                    <form method="POST" id="code_form" action="{% url 'coding-page' question_id %}">
+                        {% csrf_token %}
+                        <!-- ROW-OPTION-SCORE -->
+                        <div class="row mb-3">
+                            <div class="col clearfix align-self-centers pll-0 prr-0">
+                                <select id="lang" onchange="myfunc()" class="form-select w-25 d-inline-block"
+                                    aria-label="Default select example" name="ext">
+                                    <option selected value="c" style="color: #fff">
+                                        C
+                                    </option>
+                                    <option value="cpp" style="color: #fff">
+                                        C++
+                                    </option>
+                                    <option value="py" style="color: #fff">
+                                        Python
+                                    </option>
+                                </select>
+                                <!-- SCORE COUNTER -->
+                                <div class="score-counter d-inline-block float-right">
+                                    <label class="align-middle" style="color: #fff">SCORE</label>
+                                    <div class="bg-header d-inline-block p-2 rounded border" style="color: #fff"
+                                        id="score">
+                                        {{ total_score }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- ROW-CODE_EDITOR -->
+
+                        <div class="row mb-3 prl-0" style="height: 62vh">
+                            <div class="card" style="padding: 0">
+                                <div class="card-header text-light">
+                                    Code Editor
+                                </div>
+                                <div class="editor-wrapper" style="height: 52vh"></div>
+                            </div>
+                        </div>
+
+                        <input type='hidden' id='hiddenField' name='code' value='' />
+
+                        <div class="row">
+                            <div class="col-12 col-md align-self-center pll-0 prr-0 mr-3 mb-3">
+                                <button id="load" type="button" class="btn btn-warning btn-block button">
+                                    Load Buffer
+                                </button>
+                            </div>
+                            <div class="col-12 col-md align-self-center pll-0 prr-0 mr-3 mb-3">
+                                <!-- <div class="input-group">
+                                <input type="file" name="" id="" class="form-control" />
+                                </div> -->
+                                <div class="input-group">
+                                    <div class="form-file">
+                                        <input type="file" class="form-file-input" id="choose-file"
+                                            aria-describedby="inputGroupFileAddon01" />
+                                        <div class="form-file-label d-block" style for="choose-file">
+                                            <div
+                                                class="form-file-button btn-md bg-warning border border-warning text-dark text-center button">
+                                                Choose Files
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md align-self-center pll-0 prr-0 mb-3">
+                                <button id="submit" class="btn btn-success btn-block button">
+                                    Submit
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="text-center fixed-bottom">
+        <div class="container-fluid">
+            <div class="footer-text pt-3 pb-4" style="font-size: 18px;">&copy<span> PICT IEEE Student Branch</span></div>
+        </div>
+    </footer>
+
+    <!-- Optional JavaScript -->
+    <!-- CODE MIRROR -->
+    <script src="{% static 'Users/js/codemirror-5.57.0/lib/codemirror.js' %}"></script>
+    <script src="{% static 'Users/js/codemirror-5.57.0/mode/javascript/javascript.js' %}"></script>
+    <!-- Popper.js first, then Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
+        integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
+        crossorigin="anonymous"></script>
+    <script src="{% static 'Users/js/codemirror-5.57.0/theme/base16-dark.css' %}"></script>
+    <script src="{% static 'Users/js/codemirror-5.57.0/mode/clike/clike.js' %}"></script>
+    <script src="{% static 'Users/js/codemirror-5.57.0/mode/python/python.js' %}"></script>
+    <script src="{% static 'Users/js/codemirror-5.57.0/addon/edit/closebrackets.js' %}"></script>
+    <script src="{% static 'Users/js/app.js' %}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script>
+
+        var endTime = "{{ time|date:'M d, Y H:i:s' }}";
+        console.log("RECEIVED END TIME IS: ", endTime);
+
+        var Clock = (function () {
+            var exports = function (element) {
+                this._element = element;
+                var html = '';
+                for (var i = 0; i < 6; i++) {
+                    html += '<span>&nbsp;</span>';
+                }
+                this._element.innerHTML = html;
+                this._slots = this._element.getElementsByTagName('span');
+                this._tick();
+            };
+            exports.prototype = {
+                _tick: function () {
+                    var time = new Date().getTime();
+                    var end = new Date(endTime).getTime();
+                    var distance = end - time;
+
+
+                    if (distance < 0) {
+                        //   window.location.replace('{% url 'logout' %}');
+                        
+                        if (window.location.port != "") {
+                            
+                            window.location = window.location.protocol + '//' + window.location.hostname + ':' + window.location.port + '/logout/';
+                        }
+                        else {
+                            
+                            window.location = window.location.protocol + '//' + window.location.hostname + '/logout/';
+                        }
+                    }
+
+                    else {
+
+                        // Time calculations for days, hours, minutes and seconds
+                        //var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                        this._update(this._pad(hours) + this._pad(minutes) + this._pad(seconds));
+                        var self = this;
+                        setTimeout(function () {
+                            self._tick();
+                        }, 1000);
+                    }
+                },
+                _pad: function (value) {
+                    return ('0' + value).slice(-2);
+                },
+                _update: function (timeString) {
+                    var i = 0, l = this._slots.length, value, slot, now;
+                    for (; i < l; i++) {
+                        value = timeString.charAt(i);
+                        slot = this._slots[i];
+                        now = slot.dataset.now;
+                        if (!now) {
+                            slot.dataset.now = value;
+                            slot.dataset.old = value;
+                            continue;
+                        }
+                        if (now !== value) {
+                            this._flip(slot, value);
+                        }
+                    }
+                },
+                _flip: function (slot, value) {
+                    slot.classList.remove('flip');
+                    slot.dataset.old = slot.dataset.now;
+                    slot.dataset.now = value;
+                    slot.offsetLeft;
+                    slot.classList.add('flip');
+                }
+            };
+            return exports;
+        }());
+        var i = 0, clocks = document.querySelectorAll('.clock'), l = clocks.length;
+        for (i = 0; i < l; i++) {
+            new Clock(clocks[i]);
+        }
+    </script>
+
+    <script type="text/javascript">
+        if ('{{ code }}' != '') {
+            var json_code = `{{ code }}`;
+            var code = json_code.replace(/&amp;/g, "&");
+            code = code.replace(/&lt;/g, "<");
+            code = code.replace(/&gt;/g, ">");
+            code = code.replace(/&quot;/g, '"');
+            code = code.replace(/&#39;/g, "'");
+            code = code.replace(/&#x2F;/g, "/");
+            code = code.replace(/&#x60;/g, "`");
+            code = code.replace(/&#x3D;/g, "=");
+            code = code.slice(1, -1);
+            editor.setValue(code);
+        }
+    </script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $.ajaxSetup({
+            cache: false
+        });
+        $(document).ready(function () {
+
+            $("#submit").click(function () {
+                let question_id = parseInt(document.querySelector('.card-header').textContent.trim().split(' ')[1]);
+                let lang = document.getElementById('lang').value;
+                let user_code = editor.getValue();
+                if (user_code != "") {
+                    document.getElementById('hiddenField').value = user_code;
+                    $("#code_form").submit();
+                }
+                else {
+                    alert('Please write some code in the editor before submitting.');
+                    event.preventDefault();
+                }
+
+
+            });
+
+            $("#run").click(function () {
+                let question_id = parseInt(document.querySelector('.card-header').textContent.trim().split(' ')[1]);
+                let input = $('#input-textarea').val();
+                if (input != "") {
+                    $.ajax({
+                        url: '{% url 'get-output' %}',
+                        type: "POST",
+                        data: {
+                        csrfmiddlewaretoken: '{{csrf_token}}',
+                        ip: input,
+                        question_no: question_id,
+                    },
+                        success: function (output) {
+                            let out = output["out"];
+                            $('#output-textarea').val(output["out"]);
+                        },
+                        cache: false,
+                        });
+        }
+                    else {
+                $('#output-textarea').val("Please enter an input to see its corresponding output.");
+            }
+                });
+
+        $("#load").click(function () {
+            let question_id = parseInt(document.querySelector('.card-header').textContent.trim().split(' ')[1]);
+            let lang = document.getElementById('lang').value;
+            $.ajax({
+                url: '{% url 'loadbuffer' %}',
+                type: "POST",
+                data: {
+                    csrfmiddlewaretoken: '{{csrf_token}}',
+                    qno: question_id,
+                    ext: lang,
+                }, dataType: 'json',
+                success: function (result) {
+                    let code = result["txt"];
+                    if (code != "")
+                        editor.setValue(code);
+                    else
+                        alert('You have no previous submissions of this question with the selected language to load.');
+                },
+                cache: false,
+            });
+        });
+
+        $("#choose-file").change(function () {
+            let ext = $('#choose-file').val().split('.')[1];
+            if (ext == 'py' || ext == 'cpp' || ext == 'c') {
+                let reader = new FileReader();
+                reader.onload = handleFileLoad;
+                reader.readAsText(event.target.files[0]);
+
+                function handleFileLoad(event) {
+                    let code = event.target.result;
+                    editor.setValue(code);
+                }
+            }
+            else
+                alert('You can only upload .c, .cpp or .py files.');
+        });
+            });
+    </script>
+
+</body>
+
+</html>

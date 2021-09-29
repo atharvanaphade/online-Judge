@@ -1,0 +1,115 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RC</title>
+
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="{% static 'Users/css/instruction.css' %}" />
+</head>
+
+<body>
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-light" style="background:
+      #010c16;height: 10vh">
+
+    <a class="navbar " href="{% url 'question-hub' %}">
+      <img src="{% static 'Users/imgs/RC_logo.jpeg' %}" height="55px" width="75px" alt="LOGO" style="margin-right:3vw;">
+    </a>
+    <h4 class="d-inline align-middle text-white">Instructions</h4>
+    <div class="navbar-collapse justify-content-end" id="navbarCollapse">
+      <span class="navbar-brand mb-0 text-light" style="margin-right:3vw;">Welcome,
+        {{ username }} !</span>
+      <div class="hide">
+        <img src="{% static 'Users/imgs/pisb.jpg' %}" height="50px" width="150px" alt="LOGO">
+      </div>
+    </div>
+
+  </nav>
+
+  <div class="row mx-auto h72" style="align-items: center;">
+    <div class="col-md-8">
+      <div class="card box mb-5 text-light">
+        <div class="card-body" style="font-size:18px;">
+          <h3 class="card-title text-center">Instructions</h3>
+         <ul>
+            <li>This round comprises of 6 questions. All questions have marking scheme of +100 for right submissions.
+            </li>
+            <p> </p>
+            <li>FOR SENIORS: There is no partial marking for the Seniors</li>
+            <p></p>
+            <li>FOR JUNIORS: Partial marking will be given according to the test cases passed.</li>
+            <p> </p>
+            <li>Only C/C++/python are available for coding.</li>
+            <p> </p>
+            <li>Player can create their own sample test cases for testing.</li>
+            <p></p>
+            <li>Player can choose any editor they want or use the one provided by us. </li>
+            <p> </p>
+            <li>RC round 2 does not have questions in it, you have detect the pattern or the logic of the program by
+              inputting the values into the input field provided on the coding page, corresponding result will be appear
+              in the output field.</li>
+            <p></p>
+            <li>Observe the output from the corresponding input, and code accordingly.</li>
+            <p> </p>
+            <li>Latest submission will be save in the buffer, you can view that using the Load Buffer button.</li>
+            <p></p>
+            <li>The Duration of the round is 2 hours.</li>
+            <p></p>
+            <li>Please play the contest in Full Screen(fn + f11) for better resolution.</li>
+            <p></p>
+            <li>Player can view all their submissions on submission page.</li>
+            <p></p>
+            <li>Player can anytime view their Rank on Leaderboard page.</li>
+          </ul> 
+        </div>
+        <div class="card-footer text-center">
+          <form>
+            <input id="check-box" type="checkbox"> I have read all the instructions
+            carefully
+            </input>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROCEED BUTTON -->
+
+    <div class="col-md-4">
+      <a id="anchor">
+        <div class="card item-vertical-center" id="proceed" style="border:0px;">
+          <button type="button" class="btn text-white" style="height:3rem;"><strong>Proceed</strong></button>
+        </div>
+      </a>
+    </div>
+  </div>
+  <footer class="text-center fixed-bottom">
+    <div class="container-fluid">
+      <div class="footer-text pt-3 pb-4">&copy<span> PICT IEEE Student Branch</span></div>
+    </div>
+  </footer>
+
+  <!-- SCRIPT -->
+  <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+    crossorigin="anonymous"></script>
+  <script type="text/javascript">
+    $(document).ready(function () {
+      $("#proceed").click(function () {
+        if ($('#check-box').is(':checked')) {
+          $("#anchor").attr("href", "{% url 'question-hub' %}");
+        }
+        else {
+          alert('Please tick the checkbox before proceeding.');
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>
