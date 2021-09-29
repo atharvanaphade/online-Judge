@@ -1,5 +1,5 @@
 # Online Judge
-This repository contains code for the event of Reverse Coding held during the techfest Credenz Live
+This repository contains code for the event of Reverse Coding held during the techfest Credenz Live hosted by PICT IEEE Student Branch.
 
 # Description
 This project is similar to competitive coding platforms like CodeChef where the user submits their code and we run it on the server. The user's code is scored according to the number of test cases passed. The backend has been made using Django.
