@@ -1,8 +1,8 @@
-# online-judge
-This repository contains code for the event of Reverse Coding held during the techfest of Credenz 20' (21') in my college.
+# Online Judge
+This repository contains code for the event of Reverse Coding held during the techfest Credenz Live
 
 # Description
-This project is similar to competitive coding platforms like codechef where the user submits their code and we run it on the server. The user's code is scored according to the number of test cases passed. The backend has been made using Django.
+This project is similar to competitive coding platforms like CodeChef where the user submits their code and we run it on the server. The user's code is scored according to the number of test cases passed. The backend has been made using Django.
 
 # Installation
 
@@ -12,7 +12,7 @@ Here is a quick guide for installing this project on your PC and hosting it loca
 
 clone the project by the following command:
 
-    git clone https://github.com/deshpandeneil/online-judge.git
+    git clone https://github.com/atharvanaphade/online-judge.git
 
 ### 2. Creating virtual environment
 
