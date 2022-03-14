@@ -52,7 +52,7 @@ Open the the `setup.py` file and set `version = "2.4.4"` on line 32
     
     python3 setup.py install
     cd ../..
-    LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
+    LD_LIBRARY_PATH=$LD_LIBRARY_PATH/usr/local/lib
     export LD_LIBRARY_PATH
     cd ..
 
